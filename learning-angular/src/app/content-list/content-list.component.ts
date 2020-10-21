@@ -13,10 +13,10 @@ export class ContentListComponent implements OnInit {
   constructor() {
     this.upcomingGames = [{
       id: 1,
-      author: 'Bluepoint Games, SIE Japan Studio',
+      author: 'Bluepoint Games, and SIE Japan Studio',
       imgUrl: 'https://www.siliconera.com/wp-content/uploads/2020/09/Demons-Souls-Screenshots-and-PS5-Box-Art-from-Amazon-Australia-Siliconera-6-710x400.jpg',
       type: 'Action RPG',
-      title: 'Demon Souls (Remake)',
+      title: 'Demon Souls',
       body: 'Demon\'s Souls is an action role-playing game where players take on the role of an adventurer, whose gender and appearance are customized at the beginning of the game, exploring the cursed land of Boletaria.',
       tags: ['Playstation Exclusive', ' Action RPG', ' Souls-like']
     }, {
@@ -56,6 +56,23 @@ export class ContentListComponent implements OnInit {
 
   }
 
+  submitInput(title: string): void {
+    let matchFound = false;
+    const gameInfo: string[] = [];
+    for (const upcomingGame of this.upcomingGames) {
+        if (upcomingGame.title === title) {
+          matchFound = true;
+          gameInfo[0] = upcomingGame.title;
+          gameInfo[1] = upcomingGame.author;
+        }
+    }
+    if (matchFound) {
+      console.log(`The game "${gameInfo[0]}" is an upcoming game created by ${ gameInfo[1] }. `);
+
+    } else {
+      console.log(`The game "${title}" was not found! Make sure you entered it correctly.`);
+    }
+  }
 
 
 }
