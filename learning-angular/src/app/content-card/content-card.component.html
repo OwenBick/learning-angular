@@ -1,8 +1,8 @@
-<div class="content-card-{{game.id }}">
-  <h1 class="title">{{game.title }}</h1>
+<div class="content-card-{{game.id }}" >
+  <h1 class="title" appHoverStyle [type]='"title"'>{{game.title }}</h1>
   <div class="author">{{game.author}}</div>
-  <img class="main image" (click)="onImageClickListener()" *ngIf="game.imgUrl" src="{{game.imgUrl}}" width="400" >
+  <img class="main image" (click)="onImageClickListener()" src="{{game.imgUrl || 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png' }}" width="400" >
   <div class="genre"  *ngIf="game.type">{{game.type}}</div>
     <div class="body">{{game.body}}</div>
-    <div class="tags" *ngIf="game.tags">{{game.tags}}</div>
+    <div class="tags" appHoverStyle [type]='"tags"' *ngFor="let tag of game.tags">{{tag}}</div>
 </div>
