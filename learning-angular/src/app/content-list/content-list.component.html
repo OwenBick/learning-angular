@@ -1,7 +1,7 @@
 <div class="page-title"><h1>Upcoming Games</h1></div>
-<div class="search-bar">Search by Title: <input #gameType value="Demon Souls">
-  <button (click)="submitInput(gameType.value)">Search</button>
-</div>
+
+<app-create-content (newGameEvent)="addToGameList($event)"></app-create-content>
+
 <app-content-card *ngFor="let upcomingGame of (upcomingGames | filterContent: 'Action RPG'); index as i;" [game]="upcomingGame" class="action-cards">
 
 </app-content-card>

@@ -74,5 +74,9 @@ export class ContentListComponent implements OnInit {
     }
   }
 
+  addToGameList(newGameFromChild: Content): void {
+    this.upcomingGames.push(newGameFromChild);
+    this.upcomingGames = Object.assign([], this.upcomingGames);
+  }
 
 }
